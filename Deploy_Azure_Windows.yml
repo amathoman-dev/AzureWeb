@@ -3,9 +3,6 @@
   hosts: localhost
   gather_facts: true
 
-  vars_files:
-    - [ 'vars/main.yml' ]
-
   vars:
     os_type: "Windows"
 
