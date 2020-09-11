@@ -1,0 +1,37 @@
+windows_ansible_connection: winrm # set this to winrm/ssh
+
+##########################################################
+####################### AZURE INFO #######################
+##########################################################
+
+azure_client_id: ''
+azure_secret: ''
+azure_subscription_id: ''
+azure_tenant: ''
+azure_location: ''
+
+azure_storage_account_type: StandardSSD_LRS #Standard_LRS
+azure_virtual_network: Matholabs-vnet
+azure_virtual_subnet: default
+vm_name: IISServer
+resource_group: RHDemo-AU-EAST
+azure_resource_group: RHDemo-AU-EAST 
+
+# Instance Sizes
+azure_tower_instance_type: "Standard_A2_v2"    # Medium = 2 vCPU / 4GB
+azure_gitlab_instance_type: "Standard_A2_v2"   # Might be able to use small...
+azure_windc_instance_type: "Standard_A2_v2"
+azure_windows_workstation_instance_type: "Standard_A2_v2"
+azure_windows_instance_type: "Standard_A2_v2"   # Medium = 2 vCPU / 4GB
+
+vm_count: 1
+
+azure_win_publisher: "MicrosoftWindowsServer"
+azure_win_offer: "WindowsServer"
+azure_win_sku: "2019-Datacenter"
+azure_win_version: "latest"
+azure_admin_user: "Superman"
+azure_admin_pass: "Ansible123!"
+
+
+

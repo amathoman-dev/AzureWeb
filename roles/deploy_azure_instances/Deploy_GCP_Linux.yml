@@ -1,0 +1,14 @@
+---
+- name: Provision New Instances
+  hosts: localhost
+  gather_facts: true
+
+  tasks:
+
+    - include_role:
+        name: "manage_azure_instances"
+
+
+
+  
+  
