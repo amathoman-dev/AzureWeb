@@ -8,19 +8,6 @@
 
   tasks:
 
-    - block:
-
-      - set_fact:
-          create_date: "{{ ansible_date_time.epoch }}"
-        when: create_date is not defined
-    
-      # Set Stats for when we are in a workflow, but only iif 
-      - set_stats:
-          data:
-            hosts_filter_windows: "{{ 'AnsibleCreated_Windows_' + snow_request }}"
-        when: hosts_filter_windows is not defined
-
-
     - include_role:
         name: "deploy_azure_instances"
 
