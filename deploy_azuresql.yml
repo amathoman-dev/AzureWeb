@@ -1,0 +1,18 @@
+
+---
+- name: Provision New Instances
+  hosts: localhost
+  gather_facts: true
+
+  vars:
+    os_type: "Windows"
+
+  tasks:
+
+    - name: Create (or update) SQL Server
+      azure_rm_sqlserver:
+        resource_group: RHDemo-AU-EAST
+        name: testsql
+        location: auseast
+       #admin_username: 
+       # admin_password: 
