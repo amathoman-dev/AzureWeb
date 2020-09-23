@@ -9,10 +9,17 @@
 
   tasks:
 
-    - name: Create (or update) SQL Server
-      azure_rm_sqlserver:
+    # - name: Create (or update) SQL Server
+    #   azure_rm_sqlserver:
+    #     resource_group: RHDemo-AU-EAST
+    #     name: testsql
+    #     location: "Australia East"
+    #    #admin_username: 
+    #    # admin_password: 
+
+    - name: Create (or update) SQL Database
+      azure_rm_sqldatabase:
         resource_group: RHDemo-AU-EAST
-        name: testsql
+        server_name: sqlcrudtest-5961
+        name: testdb
         location: "Australia East"
-       #admin_username: 
-       # admin_password: 
