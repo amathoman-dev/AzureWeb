@@ -9,13 +9,14 @@
 
   tasks:
 
-    # - name: Create (or update) SQL Server
-    #   azure_rm_sqlserver:
-    #     resource_group: RHDemo-AU-EAST
-    #     name: testsql
-    #     location: "Australia East"
-    #    #admin_username: 
-    #    # admin_password: 
+    - azure_rm_sqlserver:
+        resource_group: "{{ resource_group }}"
+        name: "{{ server_name }}"
+        location: "{{ location }}"
+        admin_username: "{{ sql_login }}"
+        admin_password: "{{ sql_password }}"
+        state: "{{ instance_state }}"
+      tags: create_instance
 
     - name: Create (or update) SQL Database
       azure_rm_sqldatabase:
@@ -23,3 +24,4 @@
         server_name: mathosql
         name: testdb
         location: "Australia East"
+      tags: create_db
