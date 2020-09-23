@@ -13,6 +13,6 @@
       azure_rm_sqlserver:
         resource_group: RHDemo-AU-EAST
         name: testsql
-        location: aus_east
+        location: "Australia East"
        #admin_username: 
        # admin_password: 
