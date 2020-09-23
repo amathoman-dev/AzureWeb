@@ -20,6 +20,6 @@
     - name: Create (or update) SQL Database
       azure_rm_sqldatabase:
         resource_group: RHDemo-AU-EAST
-        server_name: IISServer01
+        server_name: mathosql
         name: testdb
         location: "Australia East"
