@@ -14,6 +14,7 @@
         name: git
         params: '/GitAndUnixToolsOnPath'
         state: present
+      tags: pre_install
 
     - name: Install multiple packages sequentially
       win_chocolatey:
@@ -22,21 +23,26 @@
       loop:
       - nodejs
       - dotnetcore-sdk
+      tags: pre_install
 
     - name: Create directory structure
       win_file:
         path: "{{ app_path }}" 
         state: directory
-        
+      tags: pre_install
+
     - name: Delete Repo Directory
       win_file:
         path: '{{ app_path }}\{{ app_name }}'
         state: absent   
+      tags: pre_install
 
     - name: clone repository
       win_shell: |
         cd "{{ app_path }}"
         git clone "{{ repo_path }}" 
+      tags: pre_install
      
     - name: Run remote PowerShell Script
       win_command: powershell "C:\Apps\OdeToFood\install.ps1"
+      tags: run ps_script
