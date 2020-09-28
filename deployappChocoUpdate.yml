@@ -1,0 +1,46 @@
+---
+- name: Provision New Instances
+  hosts: all
+  gather_facts: false
+
+  vars:
+    repo_path: "https://github.com/amathoman/OdeToFood"
+    app_path: 'C:\Apps'
+    app_name: "OdeToFood"
+
+  tasks:
+    # - name: Install git
+    #   win_chocolatey:
+    #     name: git
+    #     params: '/GitAndUnixToolsOnPath'
+    #     state: present
+
+    # - name: Install multiple packages sequentially
+      # win_chocolatey:
+      #   name: '{{ item }}'
+      #   state: present
+      # loop:
+      # - nodejs
+      # - dotnetcore-sdk
+
+    # - name: Create directory structure
+      # win_file:
+      #   path: "{{ app_path }}" 
+      #   state: directory
+        
+    # - name: Delete Repo Directory
+      # win_file:
+      #   path: '{{ app_path }}\{{ app_name }}'
+      #   state: absent   
+
+    # - name: clone repository
+    #   win_shell: |
+    #     cd "{{ app_path }}"
+    #     git clone "{{ repo_path }}" 
+
+    - name: Run remote PowerShell Script
+      win_command: powershell "C:\apps\odetofood\update.ps1"
+    
+    - name: sleep
+      pause:
+        minutes: 1

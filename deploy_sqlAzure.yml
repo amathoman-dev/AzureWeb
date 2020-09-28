@@ -1,0 +1,26 @@
+---
+- name: Provision New Instances
+  hosts: localhost
+  gather_facts: true
+
+  vars:
+    os_type: "Windows"
+
+  tasks:
+
+  - azure_rm_sqlserver:
+      resource_group: "{{ resource_group }}"
+      name: "{{ server_name }}"
+      location: "{{ location }}"
+      admin_username: "{{ sql_login }}"
+      admin_password: "{{ sql_password }}"
+      state: "{{ instance_state }}"
+    tags: create_instance
+
+
+  - name: Create (or update) SQL Database
+    azure_rm_sqldatabase:
+      resource_group: DAALLAN_AusEAST
+      server_name: daallansql
+      name: testdb
+      location: "Australia East"
