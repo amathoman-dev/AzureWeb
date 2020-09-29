@@ -28,3 +28,4 @@
     - name: Check Applciation
       uri:
         url: http://{{ ansible_host }}
+      delegate_to: localhost
