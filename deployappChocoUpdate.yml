@@ -39,10 +39,17 @@
     #     cd "{{ app_path }}"
     #     git clone "{{ repo_path }}" 
 
-    - name: Run remote PowerShell Script (async)
-      win_command: start powershell C:\apps\odetofood\update.ps1
+    # - name: Run remote PowerShell Script (async)
+    #   win_command: start powershell C:\apps\odetofood\update.ps1
     
   
+    - name: Run regedit.exe locally (on target node) as SYSTEM and interactively
+      win_psexec:
+        command: Powershell C:\apps\odetofood\update.ps1
+        interactive: yes
+        system: yes
+
+
     - name: Allow app to sleep
       pause:
         minutes: 1
