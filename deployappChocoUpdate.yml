@@ -40,7 +40,7 @@
     #     git clone "{{ repo_path }}" 
 
     - name: Run remote PowerShell Script (async)
-      win_command: powershell "C:\apps\odetofood\update.ps1"
+      win_command: start powershell "C:\apps\odetofood\update.ps1"
       async: 120
       poll: 0
     
