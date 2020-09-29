@@ -29,15 +29,15 @@
       #   path: "{{ app_path }}" 
       #   state: directory
         
-    # - name: Delete Repo Directory
-      # win_file:
-      #   path: '{{ app_path }}\{{ app_name }}'
-      #   state: absent   
+    - name: Delete Repo Directory
+      win_file:
+        path: '{{ app_path }}\{{ app_name }}'
+        state: absent   
 
-    # - name: clone repository
-    #   win_shell: |
-    #     cd "{{ app_path }}"
-    #     git clone "{{ repo_path }}" 
+    - name: clone repository
+      win_shell: |
+        cd "{{ app_path }}"
+        git clone "{{ repo_path }}" 
 
     # - name: Run remote PowerShell Script (async)
     #   win_command: start powershell C:\apps\odetofood\update.ps1
