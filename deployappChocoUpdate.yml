@@ -10,6 +10,12 @@
     app_name: "OdeToFood"
 
   tasks:
+
+    - name: Stop Application
+      win_shell: |
+        $p = Get-Process -Name "dotnet"
+        $p | Stop-Process -Force
+
     # - name: Install git
     #   win_chocolatey:
     #     name: git
