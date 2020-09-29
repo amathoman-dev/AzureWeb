@@ -42,10 +42,10 @@
     # - name: Run remote PowerShell Script (async)
     #   win_command: start powershell C:\apps\odetofood\update.ps1
     
-    - name: Install git
-      win_chocolatey:
-        name: psexec
-        state: present
+    # - name: Install PSEXEC
+    #   win_chocolatey:
+    #     name: psexec
+    #     state: present
   
     - name: Run PSEXEC
       win_psexec:
