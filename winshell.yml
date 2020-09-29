@@ -14,7 +14,12 @@
 
       register: apprunning
 
-    - name: Applciation Success
+    - name: Applciation Check (Success)
       debug:
         msg: Applciation is Running
-      when: apprunning.stdout
+      when: apprunning.stderr !== ''
+
+    - name: Applciation Check (Failure)
+      debug:
+        msg: Applciation is Running
+      when: apprunning.stderr == ''
