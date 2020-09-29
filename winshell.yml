@@ -1,25 +1,30 @@
 ---
 - name: Provision New Instances
   hosts: all
-  gather_facts: false
+  gather_facts: true
   become: true
 
   tasks:
 
-    - name: Ensure App is Running
-      win_shell: |
-        $AppCheck = Get-Process -Name "dotnet"
-        write-host $AppCheck
-        Return $AppCheck 
+    # - name: Ensure App is Running
+    #   win_shell: |
+    #     $AppCheck = Get-Process -Name "dotnet"
+    #     write-host $AppCheck
+    #     Return $AppCheck 
 
-      register: apprunning
+    #   register: apprunning
 
-    - name: Applciation Check (Success)
-      debug:
-        msg: Applciation is Running
-      when: apprunning.stderr !== ''
+    # - name: Applciation Check (Success)
+    #   debug:
+    #     msg: Applciation is Running
+    #   when: apprunning.stderr !== ''
 
-    - name: Applciation Check (Failure)
-      debug:
-        msg: Applciation is Running
-      when: apprunning.stderr == ''
+    # - name: Applciation Check (Failure)
+    #   debug:
+    #     msg: Applciation is Running
+    #   when: apprunning.stderr == ''
+
+
+    - name: Check Applciation
+      uri:
+        url: http://{{ ansible_host }}
