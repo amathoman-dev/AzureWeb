@@ -34,5 +34,5 @@
 
     - name: Show http_status
       debug:
-        msg: "{{ ansible_host }}: Applciation OK"
-      when: http_status.status == '200'
+        msg: "{{ ansible_host }}: Applciation OK     {{http_status.status}}"
+      #when: http_status.status == '200'
