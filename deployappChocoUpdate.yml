@@ -44,6 +44,6 @@
       async: 120
       poll: 0
     
-    - name: sleep
+    - name: Allow app to sleep
       pause:
         minutes: 1
