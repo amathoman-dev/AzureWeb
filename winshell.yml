@@ -30,3 +30,8 @@
         url: http://{{ ansible_host }}
       delegate_to: localhost
       become: false
+      register: http_status
+
+    - name: Show http_status
+      debug:
+        var: http_status.status
