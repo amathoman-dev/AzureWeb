@@ -1,7 +1,7 @@
 ---
 - name: Provision New Instances
   hosts: all
-  gather_facts: true
+  gather_facts: false
   become: true
 
   tasks:
@@ -34,4 +34,5 @@
 
     - name: Show http_status
       debug:
-        var: http_status.status
+        msg: "{{ ansible_host }}: Applciation OK"
+      when: http_status.status == '200'
