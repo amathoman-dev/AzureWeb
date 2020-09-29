@@ -6,6 +6,15 @@
 
   tasks:
 
-    - name: win shell
-      win_shell: | 
-        $p = Get-Process -Name "dotnet"
+    - name: Ensure App is Running
+      win_shell: |
+        $AppCheck = Get-Process -Name "dotnet"
+        write-host $AppCheck
+        Return $AppCheck 
+
+      register: apprunning
+
+    - name: Applciation Success
+      debug:
+        msg: Applciation is Running
+      when: apprunning.stdout
