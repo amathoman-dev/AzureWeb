@@ -2,6 +2,7 @@
 - name: Provision New Instances
   hosts: all
   gather_facts: false
+  become: true
 
   vars:
     repo_path: "https://github.com/amathoman/OdeToFood"
