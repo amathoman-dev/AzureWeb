@@ -66,7 +66,15 @@
       pause:
         minutes: 1
 
-    # - Name: Ensure App is Running
-    #   win_shell: |
-    #     $p = Get-Process -Name "dotnet"
+    - name: Ensure App is Running
+      win_shell: |
+        $p = Get-Process -Name "dotnet"
+        Return $AppCheck 
+
+      register: apprunning
+
+    - name: Applciation Success
+      debug:
+        msg: Applciation is Running
+      when: apprunning.stdout
 

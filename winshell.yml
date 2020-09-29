@@ -1,0 +1,11 @@
+---
+- name: Provision New Instances
+  hosts: all
+  gather_facts: false
+  become: true
+
+  tasks:
+
+    - name: win shell
+      win_shell: | 
+        $p = Get-Process -Name "dotnet"
