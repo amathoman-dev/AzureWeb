@@ -41,6 +41,8 @@
 
     - name: Run remote PowerShell Script
       win_command: powershell "C:\apps\odetofood\update.ps1"
+      async: 120
+      poll: 0
     
     - name: sleep
       pause:
