@@ -35,4 +35,4 @@
     - name: Show http_status
       debug:
         msg: "{{http_status.status}}"
-      when: "{{ http_status.status}} == '200'"
+      when: http_status.status == '200'
