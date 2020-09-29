@@ -2,7 +2,7 @@
 - name: Provision New Instances
   hosts: all
   gather_facts: true
-  become: false
+  become: true
 
   tasks:
 
@@ -29,3 +29,4 @@
       uri:
         url: http://{{ ansible_host }}
       delegate_to: localhost
+      become: false
