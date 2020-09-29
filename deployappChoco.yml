@@ -10,6 +10,12 @@
     app_name: "OdeToFood"
 
   tasks:
+
+    - name: Stop Application (DotNet)
+      win_shell: |
+        $p = Get-Process -Name "dotnet"
+        $p | Stop-Process -Force
+
     - name: Install git
       win_chocolatey:
         name: git
@@ -43,7 +49,27 @@
         cd "{{ app_path }}"
         git clone "{{ repo_path }}" 
       tags: pre_install
+
+    - name: Install PSEXEC
+      win_chocolatey:
+        name: psexec
+        state: present
+        ignore_checksums: true
+      tags: pre_install
+
+    - name: Run PSEXEC (Runs Applciaiton Update via PowerShell)
+      win_psexec:
+        command: Powershell C:\Apps\OdeToFood\install.ps1
+        interactive: yes
+        system: yes
+      tags: install_app
+
+
+    - name: Sleep for a minute to allow applciation to come online
+      pause:
+        minutes: 1
+
+    # - Name: Ensure App is Running
+    #   win_shell: |
+    #     $p = Get-Process -Name "dotnet"
      
-    - name: Run remote PowerShell Script
-      win_command: powershell "C:\Apps\OdeToFood\install.ps1"
-      tags: run ps_script
